@@ -32,14 +32,14 @@ const chats = [
 
 export default function ChatList() {
   return (
-    <div className="w-80 glass border-r border-white/10">
+    <div className="w-80 glass border-r border-white/10 dark:text-white">
       <div className="p-4">
         <div className="relative">
-          <Search className="absolute left-3 top-2.5 w-5 h-5 text-white/50" />
+          <Search className="absolute left-3 top-2.5 w-5 h-5 text-white/50 " />
           <input
             type="search"
             placeholder="Search chats..."
-            className="w-full pl-10 pr-4 py-2 glass rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 placeholder-white/50"
+            className="w-full pl-10 pr-4 py-2 glass focus:outline-none rounded-xl focus:ring-2 focus:ring-emerald-500/50 placeholder-white/50"
           />
         </div>
       </div>

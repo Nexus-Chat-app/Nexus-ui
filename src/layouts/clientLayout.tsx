@@ -7,10 +7,10 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="h-screen overflow-hidden flex items-center justify-center ">
-      <div className='flex max-w-screen-xl h-[95vh] md:mx-auto my-4 w-full mx-4 '>
+    <div className="h-screen overflow-hidden flex items-center justify-center max-w-screen-xl mx-auto">
+      <div className='flex h-[95vh] w-full my-4 mx-4 '>
         <Sidebar />
-        <main className="flex-grow w-full">
+        <main className="w-full">
           {children}
         </main>
       </div>

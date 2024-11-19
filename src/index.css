@@ -18,15 +18,15 @@
 }
 
 body {
-  @apply min-h-screen;
-  background-image: url('https://images.unsplash.com/photo-1659101967085-36dc2abaeca7?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  @apply max-h-screen;
+  background-image: url('https://mrwallpaper.com/images/hd/maneuvering-with-skill-ashe-from-league-of-legends-in-action-y5d6zqgc9hhm983v.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .dark body {
-  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wallpaperflare.com%2Fsearch%3Fwallpaper%3DDiana%2B%2528League%2Bof%2BLegends%2529&psig=AOvVaw1LZoqxXxIilWech7Z_xSh2&ust=1732116193082000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCf7eXZ6IkDFQAAAAAdAAAAABAE');
+  background-image: url('https://static.lolwallpapers.net/2017/08/59876c364205d-932x620.jpg');
 }
 
 .bg-gradient-radial {
