@@ -19,14 +19,14 @@
 
 body {
   @apply max-h-screen;
-  background-image: url('https://mrwallpaper.com/images/hd/maneuvering-with-skill-ashe-from-league-of-legends-in-action-y5d6zqgc9hhm983v.jpg');
+  background-image: url('https://i.redd.it/the-world-rune-art-is-pure-wallpaper-material-v0-mccnpajsxy2a1.png?width=2048&format=png&auto=webp&s=5593e9c4ac9554d38bba10e1cdf7e3805cfecb52');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .dark body {
-  background-image: url('https://static.lolwallpapers.net/2017/08/59876c364205d-932x620.jpg');
+  background-image: url('https://preview.redd.it/the-world-rune-art-is-pure-wallpaper-material-v0-h4ss39jsxy2a1.png?width=640&crop=smart&auto=webp&s=70107ddc8009576ee311a929bd05c7cc59815a73');
 }
 
 .bg-gradient-radial {
@@ -38,7 +38,7 @@ body {
 }
 
 .glass {
-  @apply backdrop-blur-lg border;
+  @apply backdrop-blur-md border;
   background: var(--glass-bg);
   border-color: var(--glass-border);
 }

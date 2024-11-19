@@ -12,13 +12,8 @@ export default function Sidebar() {
     <div className="w-16 rounded-l-xl h-full glass border-r border-white/10 flex flex-col items-center py-6">
       <div className="w-10 backdrop-blur-lg rounded-full mb-8 flex items-center justify-center">
           <img
-            src="./logoBlack.png"
-            className="w-10 rounded-full dark:hidden"
-            alt="Logo"
-          />
-          <img
             src="./logoWhite.png"
-            className="w-10 rounded-full hidden dark:block"
+            className="w-10 rounded-full "
             alt="Logo"
           />
       </div>
@@ -27,7 +22,7 @@ export default function Sidebar() {
         {navItems.map((item) => (
           <button
             key={item.label}
-            className={`p-2 rounded-full transition-all duration-200 text-black dark:text-white group ${
+            className={`p-2 rounded-full transition-all duration-200 text-white group ${
               item.active ? "bg-blue-300/80 dark:bg-red-700/80 backdrop-blur-lg " : "glass-hover"
             }`}
             title={item.label}

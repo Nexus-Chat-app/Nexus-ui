@@ -32,7 +32,7 @@ const chats = [
 
 export default function ChatList() {
   return (
-    <div className="w-80 glass border-r border-white/10 dark:text-white">
+    <div className="w-80 glass border-r border-white/10 text-white">
       <div className="p-4">
         <div className="relative">
           <Search className="absolute left-3 top-2.5 w-5 h-5 text-white/50 " />
@@ -68,7 +68,7 @@ export default function ChatList() {
               </div>
               
               <div className="flex justify-between items-center">
-                <p className="text-sm text-white/70 truncate">{chat.message}</p>
+                <p className="text-sm text-gray-400/60 truncate">{chat.message}</p>
                 {chat.unread > 0 ? (
                   <span className="ml-2 bg-emerald-500/80 backdrop-blur-lg text-white text-xs rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">
                     {chat.unread}
