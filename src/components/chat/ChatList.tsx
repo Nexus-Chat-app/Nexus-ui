@@ -32,7 +32,7 @@ const chats = [
 
 export default function ChatList() {
   return (
-    <div className="w-80 glass border-r border-white/10 text-white">
+    <div className="w-80 glass border-r border-white/10 text-white backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
       <div className="p-4">
         <div className="relative">
           <Search className="absolute left-3 top-2.5 w-5 h-5 text-white/50 " />

@@ -4,7 +4,7 @@ export default function ChatArea() {
   return (
     <div className="flex flex-col w-full ">
       {/* Chat Header */}
-      <div className="flex items-center justify-between px-6 py-3 glass border-b rounded-tr-xl border-white/10">
+      <div className="flex items-center justify-between px-6 py-3 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 glass border-b rounded-tr-xl border-white/10">
         <div className="flex items-center gap-3">
           <img
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
@@ -31,7 +31,7 @@ export default function ChatArea() {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-4 glass">
+      <div className="flex-1 overflow-y-auto p-6 space-y-4 glass backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
         <div className="flex justify-start">
           <div className="bg-gray-300 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-2 max-w-[70%]">
             <p>Hey! How are you doing?</p>
@@ -48,7 +48,7 @@ export default function ChatArea() {
       </div>
 
       {/* Message Input */}
-      <div className="px-6 py-4 glass border-t border-white/10 text-white rounded-br-xl">
+      <div className="px-6 py-4 glass border-t border-white/10 text-white rounded-br-xl backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-3">
           <button className="p-2 glass-hover rounded-full transition-colors">
             <Smile className="w-6 h-6 stroke-current" />

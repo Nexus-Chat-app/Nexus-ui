@@ -2,14 +2,14 @@ import { MessageSquare, Users, Radio, Settings } from "lucide-react";
 
 const navItems = [
   { icon: MessageSquare, label: "Messages", active: true },
-  { icon: Users, label: "Groups" },
-  { icon: Radio, label: "Channels" },
+  { icon: Users, label: "Friends" },
+  { icon: Radio, label: "Groups & Channels" },
   { icon: Settings, label: "Settings" },
 ];
 
 export default function Sidebar() {
   return (
-    <div className="w-16 rounded-l-xl h-full glass border-r border-white/10 flex flex-col items-center py-6">
+    <div className="w-16 rounded-l-xl h-full glass border-r border-white/10 flex flex-col items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
       <div className="w-10 backdrop-blur-lg rounded-full mb-8 flex items-center justify-center">
           <img
             src="./logoWhite.png"
