@@ -79,8 +79,8 @@ export default function RegisterForm() {
   };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+    <Form {...form} >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
         {/* Display Success/Error Message */}
         {formStatus.message && (
           <div

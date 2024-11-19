@@ -1,4 +1,4 @@
-import { MessageSquare, Users, Settings, LogIn, UserPlus } from "lucide-react";
+import { MessageSquare, Users, LogIn, UserPlus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,14 +11,14 @@ const navItems = [
 export default function Sidebar() {
   const [isAuth, setIsAuth] = useState(false);
   return (
-    <div className="w-16 rounded-l-xl h-full glass border-r border-white/10 flex flex-col items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
-      <div className="w-10 backdrop-blur-lg rounded-full mb-8 flex items-center justify-center">
+    <div className=" rounded-b-xl  md:rounded-l-xl md:rounded-br-none w-full h-16 md:w-16 md:h-full glass border-r border-white/10 flex flex-row md:flex-col justify-between px-4 md:px-0 items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border gap-4 border-gray-200 dark:border-gray-700">
+      <div className="w-10 backdrop-blur-lg rounded-full flex items-center justify-center">
         <img src="./logoWhite.png" className="w-10 rounded-full " alt="Logo" />
       </div>
 
       {isAuth ? (
         <>
-          <nav className="flex-1 flex flex-col gap-4">
+          <nav className="flex-1 flex md:flex-col gap-4">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -34,7 +34,7 @@ export default function Sidebar() {
             ))}
           </nav>
 
-          <div className="mt-auto">
+          <div className="md:mt-auto">
             <button className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/20">
               <img
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop"
@@ -46,7 +46,7 @@ export default function Sidebar() {
         </>
       ) : (
         <>
-          <div className="flex flex-col gap-4 mt-auto">
+          <div className="flex flex-row md:flex-col gap-4 md:mt-auto">
             <Link to={'login'}>
               <button
                 className="p-2 rounded-full transition-all duration-200 text-white group"
