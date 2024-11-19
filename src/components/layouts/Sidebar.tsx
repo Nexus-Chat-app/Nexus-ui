@@ -1,5 +1,7 @@
+import { RootState } from "@/store/store";
 import { MessageSquare, Users, LogIn, UserPlus } from "lucide-react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const navItems = [
@@ -9,8 +11,8 @@ const navItems = [
 
 
 export default function Sidebar() {
-  const [isAuth, setIsAuth] = useState(false);
-  return (
+  const isAuth = useSelector((state: RootState) => state.auth.isAuthenticated);
+    return (
     <div className=" rounded-b-xl  md:rounded-l-xl md:rounded-br-none w-full h-16 md:w-16 md:h-full glass border-r border-white/10 flex flex-row md:flex-col justify-between px-4 md:px-0 items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border gap-4 border-gray-200 dark:border-gray-700">
       <div className="w-10 backdrop-blur-lg rounded-full flex items-center justify-center">
         <img src="./logoWhite.png" className="w-10 rounded-full " alt="Logo" />
