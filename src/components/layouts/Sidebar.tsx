@@ -9,7 +9,7 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <div className="w-20 glass border-r border-white/10 flex flex-col items-center py-6">
+    <div className="w-16 rounded-l-xl h-full glass border-r border-white/10 flex flex-col items-center py-6">
       <div className="w-12 h-12 bg-emerald-500/80 backdrop-blur-lg rounded-full mb-8 flex items-center justify-center">
         <span className="text-white font-semibold text-xl">W</span>
       </div>

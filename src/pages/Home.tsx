@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <>
-      <div className="flex h-screen w-screen justify-center flex-col items-center">
+      <div className="flex h-full w-full justify-center flex-col items-center">
         <a href="https://www.vlpha.tech" target="_blank">
           <img
             src={vlphaLogo}
