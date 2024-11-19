@@ -1,5 +1,6 @@
+// import Navbar from '@/components/layouts/Navbar'
+import TestNavebar from '@/components/layouts/TestNavebar'
 import React from 'react'
-import Navbar from '../components/layouts/Navbar'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -8,8 +9,8 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow pt-16">
+      <TestNavebar />
+      <main className="flex w-5/6 h-screen justify-center items-center rounded-10 bg-green-200 mx-auto mt-20">
         {children}
       </main>
     </div>
