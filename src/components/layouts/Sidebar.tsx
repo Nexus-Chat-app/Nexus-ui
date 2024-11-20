@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const navItems = [
-  { icon: MessageSquare, label: "Messages" },
-  { icon: Users, label: "Friends" },
-  { icon: Bell, label: "Notifications" },
+  { icon: MessageSquare, label: "Messages", link: "/" },
+  { icon: Users, label: "Friends", link: "/friends" },
+  { icon: Bell, label: "Notifications", link: "/notifications" },
 ];
 
 export default function Sidebar() {
@@ -26,18 +26,20 @@ export default function Sidebar() {
         <>
           <nav className="flex-1 flex md:flex-col gap-4">
             {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => setActiveTab(item.label)}
-                className={`p-2 rounded-full transition-all duration-200 text-white group ${
-                  activeTab === item.label
-                    ? "bg-blue-300/80 dark:bg-red-700/80 backdrop-blur-lg"
-                    : "glass-hover"
-                }`}
-                title={item.label}
-              >
-                <item.icon className="w-6 h-6 stroke-current" />
-              </button>
+              <Link to={item.link}>
+                <button
+                  key={item.label}
+                  onClick={() => setActiveTab(item.label)}
+                  className={`p-2 rounded-full transition-all duration-200 text-white group ${
+                    activeTab === item.label
+                      ? "bg-blue-300/80 dark:bg-red-700/80 backdrop-blur-lg"
+                      : "glass-hover"
+                  }`}
+                  title={item.label}
+                >
+                  <item.icon className="w-6 h-6 stroke-current" />
+                </button>
+              </Link>
             ))}
           </nav>
 

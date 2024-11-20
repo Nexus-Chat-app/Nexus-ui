@@ -4,6 +4,7 @@ import {ProtectedRoute, PublicRoute} from "../guards/auth.guard";
 import Login from "@/pages/Auth/Login";
 import Home from "@/pages/Home";
 import Register from "@/pages/Auth/Register";
+import Friends from "@/pages/Friends";
 // import Dashboard from "@/pages/Auth/Dashboard";
 // import Chat from "@/pages/Auth/Chat";
 // Import other components as needed
@@ -17,14 +18,14 @@ const routes: RouteObject[] = [
       </ProtectedRoute>
     ),
   },
-  // {
-  //   path: "/chat",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <Chat />
-  //     </ProtectedRoute>
-  //   ),
-  // },
+  {
+    path: "/friends",
+    element: (
+      <ProtectedRoute>
+        <Friends />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: "/login",
     element:<PublicRoute><Login /></PublicRoute>,
