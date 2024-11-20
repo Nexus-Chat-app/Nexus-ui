@@ -1,20 +1,34 @@
-import { RouteObject } from 'react-router-dom'
-import Home from '../pages/Home'
-import ForgotPassword from '@/pages/Auth/ForgotPassword'
-import Login from '@/pages/Auth/Login'
-import Register from '@/pages/Auth/Register'
+// src/routes/routes.tsx
+import { RouteObject } from "react-router-dom";
+import {ProtectedRoute, PublicRoute} from "../guards/auth.guard";
+import Login from "@/pages/Auth/Login";
+import Home from "@/pages/Home";
+// import Dashboard from "@/pages/Auth/Dashboard";
+// import Chat from "@/pages/Auth/Chat";
+// Import other components as needed
 
 const routes: RouteObject[] = [
-  {path: '/login', element: <Login />},
   {
-    path: '/',
-    element: <Home />,
+    path: "/",
+    element: (
+      <ProtectedRoute>
+        <Home />
+      </ProtectedRoute>
+    ),
   },
-  { path: '/register', element: <Register/> },
-  { 
-    path: '/forgot-password',
-    element: <ForgotPassword />,
-  }
-]
+  // {
+  //   path: "/chat",
+  //   element: (
+  //     <ProtectedRoute>
+  //       <Chat />
+  //     </ProtectedRoute>
+  //   ),
+  // },
+  {
+    path: "/login",
+    element:<PublicRoute><Login /></PublicRoute>,
+  },
+  // Add more routes as needed
+];
 
-export default routes
+export default routes;
