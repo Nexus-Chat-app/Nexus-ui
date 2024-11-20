@@ -1,6 +1,5 @@
 import { RootState } from "@/store/store";
 import { MessageSquare, Users, LogIn, UserPlus } from "lucide-react";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
