@@ -1,4 +1,4 @@
-import { Search, Heart, UserPlus, MessageSquare, Star, Calendar, X } from 'lucide-react';
+import { Search, UserPlus,  Star, X, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 type NotificationType = 'all' | 'messages' | 'reactions' | 'friends' | 'events';
@@ -16,7 +16,7 @@ interface Notification {
 const notifications: Notification[] = [
   {
     id: 1,
-    type: 'reaction',
+    type: 'message',
     title: 'Emma Wilson',
     description: 'liked your message in "Gaming Squad"',
     time: '2 min ago',
@@ -54,7 +54,7 @@ const notifications: Notification[] = [
 
 const filterTabs: { type: NotificationType; label: string; icon: any }[] = [
   { type: 'all', label: 'All', icon: Star },
-  { type: 'messages', label: 'messages', icon: MessageSquare },
+  { type: 'messages', label: 'messages', icon: MessageCircle },
 //   { type: 'reactions', label: 'Reactions', icon: Heart },
   { type: 'friends', label: 'Friends', icon: UserPlus },
 //   { type: 'events', label: 'Events', icon: Calendar }
@@ -78,8 +78,8 @@ export function Notifications() {
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'reaction': return Heart;
-      case 'message': return MessageSquare;
+      case 'reaction': return MessageCircle;
+      case 'message': return MessageCircle;
       case 'friend': return UserPlus;
       default: return Star;
     }
