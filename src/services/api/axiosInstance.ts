@@ -1,8 +1,9 @@
 import axios from "axios";
 
+
 // Axios instance
 const axiosInstance = axios.create({
-  baseURL: process.env.BACKEND_URL ,
+  baseURL: "http://localhost:3000", 
   timeout: 10000, 
   headers: {
     "Content-Type": "application/json",

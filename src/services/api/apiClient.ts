@@ -1,16 +1,46 @@
-import axiosInstance from "./axiosInstance";
+import axios, { AxiosError } from "axios";
 
-// Define a reusable API client
-const apiClient = {
-  // POST request for login
-  login: async (credentials: { identifier: string; password: string; rememberMe: boolean }) => {
-    return await axiosInstance.post("/login", credentials);
+const apiClient = axios.create({
+  baseURL: "http://localhost:3000",
+  headers: {
+    "Content-Type": "application/json",
   },
+});
 
-  // POST request for OTP verification
-  verifyOtp: async (otpData: { identifier: string; otp: string; rememberDevice: boolean }) => {
-    return await axiosInstance.post("/verify-otp", otpData);
-  },
+export const loginUser = async (credentials: {
+  identifier: string;
+  password: string;
+  rememberMe: boolean;
+}) => {
+  try {
+    
+    const response = await apiClient.post("/auth/login", credentials);
+    console.log('response', response);
+    return response.data;
+  } catch (error: any) {
+    if (error instanceof AxiosError) {
+      console.error('Axios error:', error.response?.data || error.message);
+    } else {
+      console.error('Unknown error:', error);
+    }
+    throw error;
+  }
 };
 
-export default apiClient;
+export const verifyOtp = async (otpData: {
+  identifier: string;
+  otp: string;
+  rememberDevice: boolean;
+}) => {
+  try {
+    const response = await apiClient.post("/auth/verify-otp", otpData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export default {
+  loginUser,
+  verifyOtp,
+};
