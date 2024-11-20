@@ -1,20 +1,25 @@
 import { RootState } from "@/store/store";
-import { MessageSquare, Users, LogIn, UserPlus } from "lucide-react";
+import { MessageSquare, Users, LogIn, UserPlus, Bell } from "lucide-react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const navItems = [
-  { icon: MessageSquare, label: "Messages", active: true },
+  { icon: MessageSquare, label: "Messages" },
   { icon: Users, label: "Friends" },
+  { icon: Bell, label: "Notifications" },
 ];
-
 
 export default function Sidebar() {
   const isAuth = useSelector((state: RootState) => state.auth.isAuthenticated);
-    return (
-    <div className=" rounded-b-xl  md:rounded-l-xl md:rounded-br-none w-full h-16 md:w-16 md:h-full glass border-r border-white/10 flex flex-row md:flex-col justify-between px-4 md:px-0 items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border gap-4 border-gray-200 dark:border-gray-700">
+
+  // State for active tab
+  const [activeTab, setActiveTab] = useState("Messages");
+
+  return (
+    <div className="rounded-b-xl md:rounded-l-xl md:rounded-br-none w-full h-16 md:w-16 md:h-full glass border-r border-white/10 flex flex-row md:flex-col justify-between px-4 md:px-0 items-center py-6 backdrop-filter backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border gap-4 border-gray-200 dark:border-gray-700">
       <div className="w-10 backdrop-blur-lg rounded-full flex items-center justify-center">
-        <img src="./logoWhite.png" className="w-10 rounded-full " alt="Logo" />
+        <img src="./logoWhite.png" className="w-10 rounded-full" alt="Logo" />
       </div>
 
       {isAuth ? (
@@ -23,9 +28,10 @@ export default function Sidebar() {
             {navItems.map((item) => (
               <button
                 key={item.label}
+                onClick={() => setActiveTab(item.label)}
                 className={`p-2 rounded-full transition-all duration-200 text-white group ${
-                  item.active
-                    ? "bg-blue-300/80 dark:bg-red-700/80 backdrop-blur-lg "
+                  activeTab === item.label
+                    ? "bg-blue-300/80 dark:bg-red-700/80 backdrop-blur-lg"
                     : "glass-hover"
                 }`}
                 title={item.label}
@@ -48,7 +54,7 @@ export default function Sidebar() {
       ) : (
         <>
           <div className="flex flex-row md:flex-col gap-4 md:mt-auto">
-            <Link to={'login'}>
+            <Link to="login">
               <button
                 className="p-2 rounded-full transition-all duration-200 text-white group"
                 title="login"
@@ -56,10 +62,10 @@ export default function Sidebar() {
                 <LogIn className="w-6 h-6 stroke-current" />
               </button>
             </Link>
-            <Link to={'register'}>
+            <Link to="register">
               <button
                 className="p-2 rounded-full transition-all duration-200 text-white group"
-                title="login"
+                title="register"
               >
                 <UserPlus className="w-6 h-6 stroke-current" />
               </button>
