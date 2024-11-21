@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   nexus-ui:
-    build:
-      context: .
+    image: ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
     ports:
       - "4173:4173"
     environment:
