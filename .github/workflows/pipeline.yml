@@ -29,7 +29,7 @@ jobs:
         run: npm run type-check
 
       - name: Build Application
-        run: npm run build --progress=plain
+        run: npm run build --progress
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
