@@ -104,7 +104,7 @@ export default function RegisterForm() {
                   <Input
                     placeholder="John"
                     {...field}
-                    className="bg-white/50 dark:bg-gray-800/50"
+                    className="bg-white/50 border-0 dark:bg-gray-800/50"
                   />
                 </FormControl>
                 <FormMessage />
@@ -121,7 +121,7 @@ export default function RegisterForm() {
                   <Input
                     placeholder="Doe"
                     {...field}
-                    className="bg-white/50 dark:bg-gray-800/50"
+                    className="bg-white/50 border-0 dark:bg-gray-800/50"
                   />
                 </FormControl>
                 <FormMessage />
@@ -140,7 +140,7 @@ export default function RegisterForm() {
                 <Input
                   placeholder="johndoe"
                   {...field}
-                  className="bg-white/50 dark:bg-gray-800/50"
+                  className="bg-white/50 border-0 dark:bg-gray-800/50"
                 />
               </FormControl>
               <FormMessage />
@@ -157,7 +157,7 @@ export default function RegisterForm() {
                 <Input
                   placeholder="john@example.com"
                   {...field}
-                  className="bg-white/50 dark:bg-gray-800/50"
+                  className="bg-white/50 border-0 dark:bg-gray-800/50"
                 />
               </FormControl>
               <FormMessage />
@@ -174,7 +174,7 @@ export default function RegisterForm() {
                 <Input
                   placeholder="+1234567890"
                   {...field}
-                  className="bg-white/50 dark:bg-gray-800/50"
+                  className="bg-white/50 border-0 dark:bg-gray-800/50"
                 />
               </FormControl>
               <FormMessage />
@@ -193,7 +193,7 @@ export default function RegisterForm() {
                     type={showPassword ? "text" : "password"}
                     placeholder="********"
                     {...field}
-                    className="bg-white/50 dark:bg-gray-800/50 pr-10"
+                    className="bg-white/50 border-0 dark:bg-gray-800/50 pr-10"
                   />
                   <button
                     type="button"
@@ -227,7 +227,7 @@ export default function RegisterForm() {
                     type={showConfirmPassword ? "text" : "password"}
                     placeholder="********"
                     {...field}
-                    className="bg-white/50 dark:bg-gray-800/50 pr-10"
+                    className="bg-white/50 border-0 dark:bg-gray-800/50 pr-10"
                   />
                   <button
                     type="button"
@@ -265,14 +265,14 @@ export default function RegisterForm() {
                   I agree to the{" "}
                   <a
                     href="#"
-                    className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                    className="text-white hover:text-red-500 dark:text-red-400 dark:hover:text-red-300"
                   >
                     terms of service
                   </a>{" "}
                   and{" "}
                   <a
                     href="#"
-                    className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                    className="text-white hover:text-red-500 dark:text-red-400 dark:hover:text-indigo-300"
                   >
                     privacy policy
                   </a>
