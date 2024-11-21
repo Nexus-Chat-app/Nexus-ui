@@ -1,0 +1,70 @@
+name: CI/CD for Nexus UI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    name: Build Docker Image and Push to Docker Hub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.17.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build --progress
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
+
+  deploy:
+    name: Deploy Nexus UI to EC2
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Add SSH Key
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
+            echo "Pulling latest Docker image..."
+            docker pull ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
+            echo "Stopping existing container if running..."
+            docker stop nexus-ui || true
+            echo "Removing old container if exists..."
+            docker rm nexus-ui || true
+            echo "Starting containers with Docker Compose..."
+            docker-compose -f ~/docker-compose.yml up -d
+            echo "Deployment successful!"
+          EOF

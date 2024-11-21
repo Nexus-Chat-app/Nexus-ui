@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  nexus-ui:
+    image: nexus-ui:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4173:80"
+    restart: always
