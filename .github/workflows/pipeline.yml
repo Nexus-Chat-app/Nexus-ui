@@ -10,29 +10,28 @@ on:
 
 jobs:
   build-and-push:
-    name: Build and Push Docker Image
+    name: Build Docker Image and Push to Docker Hub
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Log in to Docker Hub
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Step 3: Build and Push Docker Image
       - name: Build and Push Docker Image
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
-          docker-compose build
-          docker tag nexus-ui:latest ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
 
   deploy:
     name: Deploy Nexus UI to EC2
@@ -40,18 +39,15 @@ jobs:
     needs: build-and-push
 
     steps:
-      # Step 1: Add SSH Key
       - name: Add SSH Key
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Step 2: Copy docker-compose.yml to EC2
       - name: Copy docker-compose.yml
         run: |
           scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:~/docker-compose.yml
 
-      # Step 3: Deploy to EC2
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
