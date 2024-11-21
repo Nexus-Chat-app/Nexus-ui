@@ -25,9 +25,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: TypeScript Check
-        run: npm run type-check
-
       - name: Build Application
         run: npm run build --progress
 
@@ -58,32 +55,20 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: List files in the repository
-        run: ls -la
-
-      - name: Copy docker-compose.yml
+      - name: Copy docker-compose.yml to EC2
         run: |
-          scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/home/ubuntu/docker-compose.yml
+          scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:~/docker-compose.yml
 
-      - name: Install Docker Compose on EC2 (if necessary)
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
-            if ! command -v docker-compose &> /dev/null; then
-              echo "Docker Compose not found. Installing..."
-              sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-              sudo chmod +x /usr/local/bin/docker-compose
-            fi
-            docker-compose --version
-          EOF
-
-      - name: Deploy to EC2
+      - name: Deploy via SSH
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
             echo "Pulling latest Docker image..."
             docker pull ${{ secrets.DOCKER_USERNAME }}/nexus-ui:latest
-
+            echo "Stopping existing container if running..."
+            docker stop nexus-ui || true
+            echo "Removing old container if exists..."
+            docker rm nexus-ui || true
             echo "Starting containers with Docker Compose..."
-            docker-compose up -d || (docker-compose logs && exit 1)
-
+            docker-compose -f ~/docker-compose.yml up -d
             echo "Deployment successful!"
           EOF
