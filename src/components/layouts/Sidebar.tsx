@@ -1,5 +1,5 @@
 import { RootState } from "@/store/store";
-import { MessageCircle, Users, LogIn, UserPlus, Bell } from "lucide-react";
+import { MessageCircle, Users, LogIn, UserPlus, Bell, Radio } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const navItems = [
   { icon: MessageCircle, label: "Messages", link: "/" },
   { icon: Users, label: "Friends", link: "/friends" },
+  { icon: Radio, label: "Channels", link: "/channels" },
   { icon: Bell, label: "Notifications", link: "/notifications" },
 ];
 
