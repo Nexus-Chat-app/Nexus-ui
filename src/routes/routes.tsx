@@ -6,6 +6,7 @@ import Home from "@/pages/Home";
 import Register from "@/pages/Auth/Register";
 import Friends from "@/pages/Friends";
 import { Notifications } from "@/pages/Notifications";
+import Channels from "@/pages/channels";
 // import Dashboard from "@/pages/Auth/Dashboard";
 // import Chat from "@/pages/Auth/Chat";
 // Import other components as needed
@@ -32,6 +33,14 @@ const routes: RouteObject[] = [
     element: (
       <ProtectedRoute>
         <Notifications />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/channels",
+    element: (
+      <ProtectedRoute>
+        <Channels />
       </ProtectedRoute>
     ),
   },
