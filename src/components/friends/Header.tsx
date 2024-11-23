@@ -13,7 +13,7 @@ export function Header() {
         </button>
       </div>
       <div className="relative">
-        <Search className="absolute left-3 top-2.5 w-5 h-5 text-white/50" />
+        <Search className="absolute left-3 z-50 top-2.5 w-5 h-5 text-white/50" />
         <input
           type="search"
           placeholder="Search friends..."
