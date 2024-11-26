@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
+    darkMode: "class",
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
   	extend: {
@@ -91,7 +91,12 @@ export default {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
 			'logo-spin': 'logo-spin 2s linear infinite'
-  		}
+  		},
+		fontFamily: {
+			'macondo': 'Macondo',
+			'poppins': 'Poppins',
+			'titles': 'New Rocker'
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

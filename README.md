@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Nexus Ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the real-time chat application **NEXUS** , built using **ReactJS** and styled with **TailwindCSS**. It provides a seamless and responsive user interface for messaging and video calls.  
 
-Currently, two official plugins are available:
+## Features  
+- Dynamic and responsive UI  
+- Real-time messaging with WebSocket integration  
+- Video and voice calls using WebRTC  
+- Authentication integration with the backend  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack  
+- **ReactJS**  
+- **TailwindCSS**  
+- **TypeScript**  
+- **WebRTC**  
+- **WebSocket**  
 
-## Expanding the ESLint configuration
+## Setup  
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/Nexus-Chat-app/Nexus-ui
+   cd Nexus-ui
+   ```  
+2. Install dependencies:  
+   ```bash
+   npm install
+   ```  
+3. Set The Env Variables
+  ```bash 
+  cp .env.example .env
+  ```
+3. Start the development server:  
+   ```bash
+   npm run dev
+   ```  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Scripts  
+- `npm run dev` - Start the development server  
+- `npm run build` - Build the production-ready app  
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Contributing  
+Feel free to open issues or submit pull requests to improve the project!  
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## License  
+This project is licensed under [MIT License](./LICENSE).  
